@@ -2,16 +2,22 @@
   "name": "flowbird",
   "version": "1.0.0",
   "description": "flowbird",
+  "private":true,
   "engines": {
-    "node": "16.13.1"
+    "node": ">=16.13.1",
+    "npm": ">=8.3.0"
   },
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:unit": "cd client && npm run test",
+    "test:screenshot": "cd client && npm run loki-test",
     "start": "node server.js",
     "start_dev": "nodemon ./server.js localhost 8000",
     "build_app": "cd client && npm run build && gulp",
-    "dev": "concurrently \"npm run start --prefix ./client\"  \"npm run start_dev \""
+    "dev": "concurrently \"npm run start --prefix ./client\"  \"npm run start_dev \"",
+    "precommit": "lint-staged",
+    "eslint_app": "node_modules/.bin/eslint app/",
+    "eslint_client": "node_modules/.bin/eslint client/src"
   },
   "nodemonConfig": {
     "restartable": "rs",
@@ -29,22 +35,24 @@
     "app-root-path": "^3.0.0",
     "axios": "^0.21.1",
     "chalk": "^4.1.2",
-    "cors": "^2.8.5",
     "ejs": "^3.1.7",
     "express": "^4.17.3",
     "file-exists": "^5.0.1",
     "helmet": "^4.6.0",
     "morgan": "^1.10.0",
     "node-env-file": "^0.1.8",
-    "unzipper": "^0.10.11"
+    "unzipper": "^0.10.11",
+    "winston": "^3.7.2"
   },
   "devDependencies": {
     "concurrently": "^5.3.0",
     "eslint": "^7.20.0",
     "eslint-config-prettier": "^7.2.0",
-    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-prettier": "^3.4.1",
     "gulp-clean": "^0.4.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^12.4.1",
     "nodemon": "^2.0.15",
-    "prettier": "^2.2.1"
+    "prettier": "^2.6.2"
   }
 }
