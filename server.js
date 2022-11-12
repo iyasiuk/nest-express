@@ -59,7 +59,7 @@ app.use(errorLogger)
 app.use(errorResponder)
 app.use(invalidPathHandler)
 
-app.listen(process.env.PORT || 8000, err => {
+app.listen(process.env.PORT || 3000, err => {
   if (err) {
     console.error(err);
   }
