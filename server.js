@@ -63,5 +63,5 @@ app.listen(process.env.PORT || 8000, err => {
   if (err) {
     console.error(err);
   }
-  console.log(`app running on port:${process.env.PORT || 8000}`);
+  console.log(`app running on port:${process.env.PORT || 3000}`);
 });
